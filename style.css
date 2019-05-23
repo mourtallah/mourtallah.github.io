@@ -1,0 +1,17 @@
+p {
+	font-family: Garamond; 
+	font-size: 24px;
+}
+
+nav {
+	text-align: center;
+}
+
+nav img {
+	max-height: 650px;
+	width: 900px;
+}
+
+.menu {
+	visibility: hidden;
+}
