@@ -15,3 +15,9 @@ nav img {
 .menu {
 	visibility: hidden;
 }
+
+.name {
+	font-family: "Garamond";
+	font-size: 27px
+	margin: 20px;
+}
