@@ -1,0 +1,183 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r include=FALSE}
+library(reticulate)
+library(plotrix)
+```
+---
+title: 'Solutions: Proving The Double Angle Indentites with Euclidean Transformations in Two-Dimensional Space'
+output: html_notebook
+---
+
+#Abstract
+
+Although the angle addition rule suffices to prove the Double Angle Indentities for sine and cosine, we invoke some linear algebra to find an alternate proof using the composite map of rotations and a reflection in $\mathbb{R}^2$. The resultant identities can be used to derive the matrix representation of a reflection about an arbitrary line $L$.
+
+#Goals
+
+1. Using rotation matrices, prove the following double angle indenties
+
+$$ \cos(2\theta) = \cos^2(\theta) -\sin^2(\theta)$$
+$$ \sin(2\theta) = 2\sin(\theta)cos(\theta) $$ 
+
+2. Let $L$ be a line through the origin in $R^2$ and let $\theta$ be the angle between $L$ and the x-axis measured counter-clock wise from the x-axis to L. Argue geometrically that the matrix representing a reflection about L is equal to the composite map, 
+$$Ref_L = R_\theta \circ Ref_{x-axis} \circ R_{-\theta}$$ 
+where  $R_\theta$ is a clockwise rotation by $\theta$,  $R_{-\theta}$ is a counter clockwise rotation by $\theta$ and $Ref_{x-axis}$ represents a reflection about the x-axis.
+
+3. Compute the matrix for $Ref_L$ in terms of $\theta$ 
+
+#Solutions
+
+Clockwise and counter-clockwise rotations by $\theta$ in $\mathbb{R}^2$ can be desribed by the follwing matrices, respectively by $$R_\theta = \begin{bmatrix} cos(\theta) & -sin(\theta) \\ sin(\theta) & cos(\theta)\end{bmatrix}$$ and $$ R_{-\theta} = \begin{bmatrix} cos(\theta) & sin(\theta) \\ -sin(\theta) & cos(\theta)\end{bmatrix}$$
+
+Now if we rotate a vector by an angle $\theta$ and then rotate is again by $\theta$, composing the two transformations, the resultant vector would be the same as if we rotated the original vector once by $2\theta$, thus 
+
+$$
+R_{2\theta} 
+= \begin{bmatrix} cos(2\theta) & -sin(2\theta) \\ sin(2\theta) & cos(2\theta)\end{bmatrix}
+= R_{\theta} \circ R_{\theta} 
+= \begin{bmatrix}
+cos(\theta) & -sin(\theta) \\ sin(\theta) & cos(\theta) \end{bmatrix}^2 
+$$
+which yields $$ \begin{bmatrix}
+cos^2(\theta) - sin^2(\theta) & -2cos(\theta)sin(\theta) \\ 2sin(\theta) cos(\theta) & cos^2(\theta) - sin^2(\theta)  \end{bmatrix} $$ 
+
+This shows that the first and third matrices must be equal and, matching the elements of the matrices, we see that $cos(2\theta)$ is indeed equal to $cos^2(\theta) - sin^2(\theta)$ and that $sin(2{\theta}) = 2cos(\theta)sin(\theta)$
+
+Now let's take a look at these vectors. It is given that $\theta$ is the measure of the angle from L to the X-axis. 
+
+```{r echo=F}
+nudge = function(x, amount=.25){
+  x=x+amount
+  return()
+}
+plot.new()
+plot.window(xlim = c(0,1.25), ylim = c(0,1.25), asp = 1)
+grid(NULL,NULL)
+abline(h=0,v=0)
+arrows(0,0,sqrt(2)/2,sqrt(2)/2, col="red")
+arrows(0,0,1/2,sqrt(3)/2)
+arrows(0,0,sqrt(3)/2,.5)
+
+text(x = sqrt(2)/2 + .1, y = sqrt(2)/2 + .1, expression(L) ,cex=1)
+
+text(1/2 + .1 ,sqrt(3)/2 + .1 ,expression(V[1]) ,cex=1)
+
+text(sqrt(3)/2 + .1,.5 + .1,expression(V[L]),cex=1)
+draw.arc(0,0,deg1=60,deg2=90,lwd = 2, radius = .25)
+draw.arc(0,0,deg1=45,deg2=180,lwd = 2, radius = .45)
+text(x = .1,.3,expression(30*degree))
+text(x = -.4,.4,expression(135*degree))
+```
+
+Our definition of $Ref_L$ is that if we take and arbitrary vector in $\mathbb{R}^2$ (call it $V_1$), rotate it counterclockwise by $\theta$ to get a vector $V_2$, 
+
+```{r echo=FALSE}
+nudge = function(x, amount=.25){
+  x=x+amount
+  return()
+}
+plot.new()
+plot.window(xlim = c(-1.25,1.25), ylim = c(-1.25,1.25), asp = 1)
+grid(NULL,NULL)
+abline(h=0,v=0)
+arrows(0,0,sqrt(2)/2,sqrt(2)/2, col="red")
+arrows(0,0,1/2,sqrt(3)/2)
+arrows(0,0,sqrt(3)/2,.5)
+
+text(x = sqrt(2)/2 + .1, y = sqrt(2)/2 + .1, expression(L) ,cex=1)
+
+text(1/2 + .1 ,sqrt(3)/2 + .1 ,expression(V[1]) ,cex=1)
+
+text(sqrt(3)/2 + .1,.5 + .1,expression(V[L]),cex=1)
+
+draw.arc(0,0,deg1=180,deg2=195,lwd = 2, radius = .45)
+arrows(0,0,-cos(sqrt(3)/4),-sin(.25), col="blue")
+text(-cos(sqrt(3)/4) - .1,-sin(.25) -.1, expression(V[2]),col = 'blue')
+text(-cos(sqrt(3)/4) + .3,-sin(.25) + .15, expression(15*degree), cex = .75)
+draw.arc(0,0,deg1=60,deg2=195,lwd = 2, radius = .25, col = "blue")
+text(x = -.3,.3,expression(135*degree))
+```
+
+
+
+then reflect it about the x-axis to get a vector $V_3$...
+
+```{r echo=F}
+nudge = function(x, amount=.25){
+  x=x+amount
+  return()
+}
+plot.new()
+plot.window(xlim = c(-1.25,1.25), ylim = c(-1.25,1.25), asp = 1)
+grid(NULL,NULL)
+abline(h=0,v=0)
+#VL arrow
+arrows(0,0,sqrt(2)/2,sqrt(2)/2, col = "red")
+
+#V1 arrow
+arrows(0,0,1/2,sqrt(3)/2)
+
+
+arrows(0,0,sqrt(3)/2,.5)
+arrows(0,0,sqrt(3)/2,.5)
+
+
+text(x = sqrt(2)/2 + .1, y = sqrt(2)/2 + .1, expression(L) ,cex=1)
+
+text(1/2 + .1 ,sqrt(3)/2 + .1 ,expression(V[1]) ,cex=1)
+
+text(sqrt(3)/2 + .1,.5 + .1,expression(V[L]),cex=1)
+
+draw.arc(0,0,deg1=165,deg2=180,lwd = 2, radius = .45)
+arrows(0,0,-cos(sqrt(3)/4),-sin(.25))
+text(-cos(sqrt(3)/4) - .1,-sin(.25) -.1, expression(V[2]))
+text(-cos(sqrt(3)/4) + .3,-sin(.25) + .32, expression(15*degree), cex = .75)
+arrows(0,0,-cos(sqrt(3)/4),sin(.25), col="blue") #V3 arrow
+text(-cos(sqrt(3)/4) - .1 ,sin(.25) -.1, expression(V[3]), col = 'blue') #v3 label
+draw.arc(0,0,deg1=165,deg2=195,lwd = 2, radius = .25, col = "blue") #REFx
+```
+
+
+and then finally rotate it clockwise by $\theta$, we will get a vector $V_4$ which is identical to $V_L$
+
+```{r echo=F}
+nudge = function(x, amount=.25){
+  x=x+amount
+  return()
+}
+plot.new()
+plot.window(xlim = c(-1.25,1.25), ylim = c(-1.25,1.25), asp = 1)
+grid(NULL,NULL)
+abline(h=0,v=0)
+arrows(0,0,sqrt(2)/2,sqrt(2)/2, col = "red")
+arrows(0,0,1/2,sqrt(3)/2)
+arrows(0,0,sqrt(3)/2,.5, col="blue", lty = 1)
+
+
+
+text(x = sqrt(2)/2 + .1, y = sqrt(2)/2 + .1, expression(L) ,cex=1)
+
+text(1/2 + .1 ,sqrt(3)/2 + .1 ,expression(V[1]) ,cex=1)
+
+text(sqrt(3)/2 + .3,.5 + .1,expression(V[L]==V[4]),cex=1)
+
+arrows(0,0,-cos(sqrt(3)/4),-sin(.25))
+text(-cos(sqrt(3)/4) - .1,-sin(.25) -.1, expression(V[2]))
+arrows(0,0,-cos(sqrt(3)/4),sin(.25))
+text(-cos(sqrt(3)/4) - .1 ,sin(.25) -.1, expression(V[3]))
+draw.arc(0,0,deg1=30,deg2=165,lwd = 2, radius = .25, col = "blue")
+
+```
+
+
+therefore $$Ref_L = R_\theta \circ Ref_{x-axis} \circ R_{-\theta}$$.
+
+And as a function of $\theta$, $Ref_L$ could be calculated as $$Ref_L = \begin{bmatrix} cos(\theta) & -sin(\theta) \\ sin(\theta) & cos(\theta)\end{bmatrix} \begin{bmatrix} 1 & 0 \\ 0 & -1\end{bmatrix} \begin{bmatrix} cos(\theta) & sin(\theta) \\ -sin(\theta) & cos(\theta)\end{bmatrix}$$
+$$ = \begin{bmatrix} cos(\theta) & sin(\theta) \\ sin(\theta) & -cos(\theta)\end{bmatrix} \begin{bmatrix} cos{\theta} & sin(\theta) \\ -sin(\theta) & cos(\theta)\end{bmatrix}$$
+
+$$ = \begin{bmatrix} cos^2{\theta} - sin^2{\theta} & 2sin(\theta)cos(\theta) \\ 2sin(\theta)cos(\theta) & sin^2(\theta) - cos^2(\theta) \end{bmatrix} $$ 
+We can further simplify this matrix by employing the double angle formulas, reducing our result to $$ Ref_{L}(\theta) = \begin{bmatrix} cos({2\theta}) & sin(2\theta) \\ sin(2\theta) & - cos(2\theta) \end{bmatrix}$$, a reflection about the line L in $\mathbb{R}^2$
