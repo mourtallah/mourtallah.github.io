@@ -1,4 +1,5 @@
 ---
+author: S. Mourtallah Faye
 output:
   pdf_document: default
   html_document: default
@@ -49,13 +50,13 @@ This shows that the first and third matrices must be equal and, matching the ele
 
 Now let's take a look at these vectors. It is given that $\theta$ is the measure of the angle from L to the X-axis. 
 
-```{r echo=F}
+```{r echo=F, fig.align='center'}
 nudge = function(x, amount=.25){
   x=x+amount
   return()
 }
 plot.new()
-plot.window(xlim = c(0,1.25), ylim = c(0,1.25), asp = 1)
+plot.window(xlim = c(0,.25), ylim = c(0,1.25), asp = 1)
 grid(NULL,NULL)
 abline(h=0,v=0)
 arrows(0,0,sqrt(2)/2,sqrt(2)/2, col="red")
@@ -75,7 +76,7 @@ text(x = -.4,.4,expression(135*degree))
 
 Our definition of $Ref_L$ is that if we take and arbitrary vector in $\mathbb{R}^2$ (call it $V_1$), rotate it counterclockwise by $\theta$ to get a vector $V_2$, 
 
-```{r echo=FALSE}
+```{r echo=FALSE, fig.align='center'}
 nudge = function(x, amount=.25){
   x=x+amount
   return()
@@ -106,7 +107,7 @@ text(x = -.3,.3,expression(135*degree))
 
 then reflect it about the x-axis to get a vector $V_3$...
 
-```{r echo=F}
+```{r echo=F, fig.align='center'}
 nudge = function(x, amount=.25){
   x=x+amount
   return()
@@ -144,7 +145,7 @@ draw.arc(0,0,deg1=165,deg2=195,lwd = 2, radius = .25, col = "blue") #REFx
 
 and then finally rotate it clockwise by $\theta$, we will get a vector $V_4$ which is identical to $V_L$
 
-```{r echo=F}
+```{r echo=F, fig.align='center'}
 nudge = function(x, amount=.25){
   x=x+amount
   return()
