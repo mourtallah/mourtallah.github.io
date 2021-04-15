@@ -6,7 +6,7 @@
 
 
 ## Welcome to GDI!
-Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.
+Girl Develop It provides affordable and accessible programs to learn software through mentorship and hands-on instruction.
 
 Our Central Tenets: 
 
@@ -30,7 +30,7 @@ Our Central Tenets:
 ##What is programming?</h3>
 @@@
 
-<p> Designing and building executable instructions for that instructs a computer to accomplish a specific task. </p>  <!-- .element: class="fragment" --> 
+<p> Designing and building executable instructions that instructs a computer to accomplish a specific task. </p>  <!-- .element: class="fragment" --> 
 
 <p> Programming code is human readable whereas computers only understand zero's and one's! </p> <!-- .element: class="fragment" --> 
 
@@ -55,7 +55,7 @@ Our Central Tenets:
 
 #### VERY ROBUST: DEEP YET FLEXIBLE 
 * Easy to learn, practically impossible to master. <!-- .element: class="fragment" -->
-<img src="../images/popular-programming-language.jpg"> <!-- .element: class="fragment" -->
+<img src="../images/popular-programming-language.jpg" hieght=500px> <!-- .element: class="fragment" -->
 @@@
 
 #### GROWING VERY FAST 
@@ -81,7 +81,7 @@ Specialize in the the creation of special effects and animations for websites, a
 @@@
 
 ###Data Scientists and Statisticians <!-- .element: class="fragment" -->
-Analysts and scientists who specialize in the Derivation of insights, descriptive or predictivce models from data for inference or artificial intelligence applications. <!-- .element: class="fragment" -->
+Analysts and scientists who specialize in the derivation of insights, descriptive or predictivce models from data for inference or artificial intelligence applications. <!-- .element: class="fragment" -->
 
 * Notable Packages : Numpy, SciPy, Pandas, SciKitLearn. <!-- .element: class="fragment" -->
 @@@
