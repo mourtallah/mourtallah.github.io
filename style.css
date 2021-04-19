@@ -1,23 +1,120 @@
-p {
-	font-family: Garamond; 
-	font-size: 24px;
+/* Master Styles */
+.body {
+    margin: 0px;
 }
 
-nav {
-	text-align: center;
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
-nav img {
-	max-height: px;
-	width: px;
+/* Nav Styles */
+
+.nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding : 75px;
 }
 
-.menu {
-	visibility: hidden;
+.left-column{
+    display : flex;
 }
 
-.name {
-	font-family: "Garamond";
-	font-size: 27px
-	margin: 20px;
+.nav-wrapper > .left-column > div {
+    margin-right: 20px;
+    font-size : .9em;
+    text-transform: lowercase;
 }
+
+.nav-wrapper > .right-column > div {
+    font-size : .9em;
+    text-transform: lowercase;
+}
+
+.nav-link-wrapper {
+    height : 22px;
+    border-bottom: 1px solid transparent;
+    transition : border-bottom 0.5s;
+}
+
+.nav-link-wrapper a {
+    color: #8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+.nav-link-wrapper:hover {
+    border-bottom: 1px solid black;
+}
+
+.nav-link-wrapper a:hover{
+    color:black;
+}
+
+.brand b { 
+    color: #8a8a;
+}
+
+/* Portfolio Styles */
+
+.portfolio-items-wrapper { 
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.portfolio-item-wrapper {
+    position: relative;
+}
+
+.portfolio-img-background {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.img-text-wrapper { 
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.content-div {
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.content-div a {
+    color: #8a8a;
+    text-decoration: none;
+    transition: color 0.5s;
+}
+
+pre code {
+    text-align: left;
+    display: flexbox;
+    justify-content: center;  
+  }
+
+
+.codeblock {
+    font-family: monospace;
+}
+
+

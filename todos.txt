@@ -1,0 +1,20 @@
+TODOs
+
+1. Build the project
+    Create the folder structure
+    adding files
+    connecting files
+
+2. The Navigation Bar
+    Two links and a name
+
+3. Build Portfolio Grid
+    images
+    titles
+    descriptions
+    animations
+
+4. About Page
+    image
+    split column layout
+    content

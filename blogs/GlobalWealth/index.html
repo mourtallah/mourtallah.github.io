@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Page Title</title>
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+
+<!--Blog Nav Section-->
+    <body>
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="left-column">
+                    <div class="nav-link-wrapper">
+                        <a href="../../index.html">Home</a>
+                    </div>
+                    <div class="nav-link-wrapper">
+                        <a href="../../about.html">about</a>
+                    </div>
+                    <div class="nav-link-wrapper">
+                        <a href="../../blog.html">blog</a>
+                    </div>
+                    <div class="nav-link-wrapper">
+                        <a href="../../papers.html">papers</a>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <div class="brand">
+                        <div>global wealth and longevity<b> or </b> justin murphy made me a data scientist</div> <!--Do I need this div tag?-->
+
+                    </div>
+                </div>
+            </div>
+
+            <!--Blog Post Section-->
+            <div class="content-div">
+                <img src="chart.png">
+                <pre>
+                <code class="codeblock">
+                    require(tidyverse)
+                    require(gapminder)
+                    filter(gapminder, year%in%c(1952, 2007)) %>% # Include only observations from 1952 and 2007
+                    ggplot(aes(log(gdpPercap), lifeExp, col = continent)) + # Wealth & longevity, colored by continent
+                    geom_point() + # Use points or dots to illustrate the data
+                    geom_smooth(method='lm') + # Add a line of best fit 
+                    facet_grid(continent~year) + # Make separate panels or facets for each continent year
+                    labs(colour = "Continent", # Clean things up for publication quality
+                        x="GPD Per Capita (logarithm)",
+                        y="Life Expectancy",
+                        title="Longevity and Wealth Across Time and Space",
+                        subtitle="Summarize your key insight here",
+                        caption="Data from Gapminder, inspiration from Justin
+                                Murphy's free course Data Blogging with R.")
+                </code>
+            </pre>
+            </div>
+    </body>
+</html>
