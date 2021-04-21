@@ -88,6 +88,14 @@
 
 }
 
+
+video {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
 img {
     display: block;
     margin-left: auto;
@@ -117,4 +125,8 @@ pre code {
     font-family: monospace;
 }
 
+h1 {
+    font-family: copperplate;
+    text-align: center;
+}
 
